@@ -1,16 +1,17 @@
 import { useState } from "react";
 
-const FilterUser = ({ users, fields, onFilterChanged }) => {
+const FilterUser = ({ users, onFilterChanged }) => {
 
   const [user, setUser] = useState("Select user...")
 
   const userChanged = (event) => {
+    const name = event.currentTarget.name
     const value = event.currentTarget.value
 
     // update input
     setUser(value)
     // lift state change up
-    onFilterChanged({...fields, user: value})
+    onFilterChanged({[name]: value})
   }
 
   return (

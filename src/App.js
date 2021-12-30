@@ -28,7 +28,7 @@ export default function App() {
 
     for (let field in fields) {
 
-      if (fields[field].trim().length <= 0) {
+      if (fields[field] && fields[field].trim().length <= 0) {
         continue
       }
 

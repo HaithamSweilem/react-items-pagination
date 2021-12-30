@@ -1,16 +1,17 @@
 import {useState} from "react";
 
-const FilterFreeText = ({ fields, onFilterChanged }) => {
+const FilterFreeText = ({ onFilterChanged }) => {
 
   const [freeText, setFreeText] = useState("")
 
   const freeTextChanged = (event) => {
+    const name = event.target.name
     const value = event.target.value
 
     // update input
     setFreeText(value)
     // lift state change up
-    onFilterChanged({...fields, freeText: value})
+    onFilterChanged({[name]: value})
   }
 
   return (

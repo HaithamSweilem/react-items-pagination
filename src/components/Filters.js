@@ -12,17 +12,18 @@ const Filters = ({ users, onFilter }) => {
   })
 
   const updateFilter = (newFields) => {
+    const allFields = {...fields, ...newFields}
     // update input
-    setFields(newFields)
+    setFields(allFields)
     // lift state change up
-    onFilter(newFields)
+    onFilter(allFields)
   }
 
   return (<>
 
-    <FilterFreeText fields={fields} onFilterChanged={updateFilter} />
+    <FilterFreeText onFilterChanged={updateFilter} />
     <br />
-    <FilterUser users={users} fields={fields} onFilterChanged={updateFilter} />
+    <FilterUser users={users} onFilterChanged={updateFilter} />
     <br />
 
   </>)
